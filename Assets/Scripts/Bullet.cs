@@ -15,13 +15,15 @@ public class Bullet : MonoBehaviour
         // 리지드바디의 속도  =앞쪽 속도* 이동 속력
         bulletRigidbody.velocity = transform.forward * speed;
 
-        Destroy(bulletRigidbody, 3f);
+        Destroy(gameObject, 3f);
     }
     private void OnTriggerEnter(Collider other)
     {
+ 
         // 상대가 태그가 다음 과같은 경우
-        if(other.tag == "player")
+        if(other.tag == "Player")
         {
+            Debug.Log("때림");
             // 상대방으로 부터 이 컴포넌트를 가져온다
             PlayerController playerController = other.GetComponent<PlayerController>();
             // 상대방 으로부터 성공했으면
